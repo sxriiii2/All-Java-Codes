@@ -1,0 +1,755 @@
+
+Surindernath Sivakumar 
+
+
+
+
+Q1.Apply the concept of abstraction using an abstract class with two abstract methods with constructors. Apply the concept of Dynamic dispatch of methods of the respective child class to find the mileage and age of the vehicle.
+
+
+Code:
+import java.util.*;
+abstract class Vehicle{
+    abstract void get_mileage();
+    abstract void get_age();
+    abstract void output();
+}
+class Car extends Vehicle{
+    int mileage;
+    int age;
+    Car(){
+        mileage=0;
+        age=5;
+    }
+    void get_mileage(){
+        Scanner sc=new Scanner(System.in);
+        mileage=sc.nextInt();
+    }
+    void get_age(){
+        Scanner sc=new Scanner(System.in);
+        age=sc.nextInt();
+    }
+     void output(){
+        System.out.println("The mileage of the car is : " + mileage);
+        System.out.println("The age of the car is : " + age);
+    }
+}
+
+class Bus extends Vehicle{
+    int mileage;
+    int age;
+    Bus(){
+        mileage=0;
+        age=5;
+    }
+    void get_mileage(){
+        Scanner sc=new Scanner(System.in);
+        mileage=sc.nextInt();
+    }
+    void get_age(){
+        Scanner sc=new Scanner(System.in);
+        age=sc.nextInt();
+    }
+     void output(){
+        System.out.println("The mileage of the bus is : " + mileage);
+        System.out.println("The age of the bus is : " + age);
+    }
+}
+public class nathan{
+    public static void main(String[] args){
+        Vehicle c=new Car();
+        c.get_mileage();
+        c.get_age();
+        c.output();
+        Vehicle b=new Bus();
+        b.get_mileage();
+        b.get_age();
+        b.output();
+    }
+}
+Output Screenshot:
+
+
+
+
+
+
+
+
+
+
+Q2.Consider the following list of transactional items using an array of strings Find the count of each item in the entire baskets, and order them in descending order based on their majority of the count.
+
+
+Code:
+import java.util.*;
+public class nathan{
+    public static void main(String[] args){
+        int a;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Number Of Baskets:  ");
+        a=sc.nextInt();
+        String[][] z= new String[a][];
+        for(int i=0;i<a;i++){
+            int items;
+            System.out.println("Items in each basket:   ");
+            items=sc.nextInt();
+            z[i] = new String[items];
+            for(int j=0; j<a; j++){
+                z[i][j]=sc.nextLine();
+            }
+        }
+        for(int i=0; i<a;i++){
+            for(int j=0; j<a; j++){
+                System.out.println(z[i][j]);
+            }
+        }
+    }
+}
+Output Screenshot:
+
+
+
+
+
+
+
+Lab Assignment 1
+Java Digital Assignment
+Name: Surindernath Sivakumar
+Reg no: 21BCE3474
+Q1. Write a program to demonstrate the knowledge of students in basic Java concepts. Eg.,
+Write a program to read the First name and Last name of a person, his weight and height using
+command line arguments. Calculate the BMI Index which is defined as the individual's body
+mass divided by the square of their height.
+Display the name and display his category based on the BMI value thus calculated
+Code:
+import java.util.*;
+public class naqqo{
+ public static void main(String[] args){
+ String first;
+ String last;
+ Scanner in=new Scanner(System.in);
+ first=in.nextLine();
+ last=in.nextLine();
+ float weight;
+ float height;
+ weight=in.nextFloat();
+ height=in.nextFloat();
+ float BMI=weight/(height*height);
+ System.out.println();
+ if(BMI<18.5){
+ System.out.println(first+" "+last+" is");
+ System.out.println("Underweight");
+ }
+ else if(BMI>18.5 & BMI<25){
+ System.out.println(first+" "+last+" is");
+ System.out.println("Normal (healthy weight)");
+ }
+ else if(BMI>25 & BMI<30){
+ System.out.println(first+" "+last+" is");
+ System.out.println("Overweight");
+ }
+ else{
+ System.out.println(first+" "+last+" is");
+ System.out.println("Obese class");
+ }
+ }
+}
+Output:
+Q2.
+Code:
+import java.util.*;
+class Employee{
+ public int h;
+ public int p;
+};
+public class naqqo{
+ public static void main(String[] args){
+ int row;
+ int coloumn;
+ Scanner in=new Scanner(System.in);
+ row=in.nextInt();
+ coloumn=7;
+ int employee[][]=new int[row][coloumn];
+ int maximum=9;
+ int minimum=1;
+ for(int i=0;i<row;i++){
+ for(int j=0;j<7;j++){
+ employee[i][j]=(int)(Math.random()*9+ minimum);
+ }
+ }
+ Employee arr[]=new Employee[row];
+ for(int i=0;i<row;i++){
+ int sum=0;
+ arr[i]=new Employee();
+ arr[i].p=i;
+ for(int j=0;j<7;j++){
+ sum+=employee[i][j];
+ }
+ arr[i].h=sum;
+
+ }
+ for(int i=0;i<row;i++){
+ for(int j=0;j<7;j++){
+ System.out.print(employee[i][j]+" ");
+ }
+ System.out.println();
+ }
+ for(int i=0;i<row;i++){
+ for(int j=0;j<i;j++){
+ if(arr[j].h<arr[i].h){
+ int temp1=arr[j].h;
+ int temp2=arr[j].p;
+ arr[j].h=arr[i].h;
+ arr[j].p=arr[i].p;
+ arr[i].h=temp1;
+ arr[i].p=temp2;
+ }
+ }
+ }
+ System.out.println();
+ for(int i=0;i<row;i++){
+ int ch=arr[i].p;
+ System.out.print("Employee "+(ch+1)+" ");
+ for(int j=0;j<7;j++){
+ System.out.print(employee[ch][j]+" ");
+ }
+ System.out.println();
+ }
+ }
+}
+Output:
+Q3.
+Develop a Java Program to count the number of votes voted for each candidate. Consider there are
+three candidates represented by the digit (1,2,3) and 10 voters have to vote. The voting process is
+simulated and automated through a random number generator method that will randomly select the
+digit from 1-to 3 and vote for him. Note: Math.random() * (max - min + 1) + min
+Code:
+import java.util.*;
+public class naqqo{
+ public static void main(String[] args){
+ int arr[]=new int[10];
+ int maximum=3;
+ int minimum=1;
+ for(int i=0;i<10;i++){
+ arr[i]=(int)(Math.random() * (maximum - minimum + 1) + minimum);
+ }
+ for(int j=1;j<4;j++){
+ int a=0;
+ for(int i=0;i<10;i++){
+ if(arr[i]==j){
+ a++;
+ }
+
+ }
+ System.out.println("Number of votes for candidate "+j+" is "+a);
+ }
+
+ }
+}
+Output:
+Q4.
+Write a program to demonstrate the knowledge of students in advanced concepts of Java string
+handling. Eg., (Bioinformatics: finding genes) Biologists use a sequence of letters A, C, T, and G to
+model a genome. A gene is a substring of a genome that starts after a triplet ATG and ends before a
+triplet TAG, TAA, or TGA. Furthermore, the length of a gene string is a multiple of 3 and the gene
+does not contain any of the triplets ATG, TAG, TAA, and TGA. Write a program that prompts the user
+to enter a genome and displays all genes in the genome. If no gene is found in the input sequence,
+displays no gene. Here are the sample runs:
+Enter a genome string: TTATGTTTTAAGGATGGGGCGTTAGTT
+O/P: TTT GGGCGT
+Code:
+import java.util.*;
+public class naqqo{
+ static void getGene(String s1){
+ int a=s1.indexOf("ATG");
+ while(a!=-1){
+ int b=s1.indexOf("TAG");
+ int c=s1.indexOf("TAA");
+ int d=s1.indexOf("TGA");
+ if(d==-1){
+ d=s1.length();
+ }
+ if(c==-1){
+ c=s1.length();
+ }
+ if(b==-1){
+ b=s1.length();
+ }
+ if(b<c & b<d & a<b){
+ String s2=s1.substring(a+3,b);
+ System.out.println(s2);
+ }
+ else if(d<c & d<b & a<d){
+ String s2=s1.substring(a+3,d);
+ System.out.println(s2);
+ }
+ else if(c<b & c<d & a<c){
+ String s2=s1.substring(a+3,c);
+ System.out.println(s2);
+ }
+ s1=s1.substring(a+3);
+ a=s1.indexOf("ATG");
+ if(a==-1){
+ System.out.println("no more genomes");
+ break;
+ }
+ else{
+ s1=s1.substring(a);
+ a=s1.indexOf("ATG");
+ }
+ }
+
+}
+ public static void main(String[] args){
+ String a="TTATGTTTTAAGGATGGGGCGTTAGTT";
+ getGene(a);
+ }
+}
+Output:
+Q5.
+Write a program to demonstrate the knowledge of students in working with classes and objects.
+Eg.,Create a class Film with string objects which stores name, language and lead_actor and category
+(action/drama/fiction/comedy). Also include an integer data member that stores the duration of the
+film. Include parameterized constructor, default constructor and accessory functions to film class.
+Flim objects can be initialized either using a constructor or accessor functions. Create a class
+FilmMain that includes a main function. In the main function create a vector object that stores the
+information about the film as objects. Use the suitable methods of vector class to iterate the vector
+object to display the following
+a. The English film(s) that has Arnold as its lead actor and that runs for shortest duration.
+b. The Tamil film(s) with Rajini as lead actor.
+c. All the comedy movies.
+Code:
+import java.util.Vector;
+class Film {
+ String Name;
+ String Language;
+ String lead_actor;
+ String Category;
+ int Duration;
+ Film() {
+ Name = null;
+ Language = null;
+ lead_actor = null;
+ Category = null;
+ Duration = 0;
+ }
+ Film(String n, String lan, String lead, String cat, int dura) {
+ Name = n;
+ Language = lan;
+ lead_actor = lead;
+ Category = cat;
+ Duration = dura;
+ }
+}
+public class prog1 {
+ public static void main(String args[]) {
+ Film f1;
+ Vector<Film> films = new Vector<Film>();
+ f1 = new Film();
+ f1.Name = "kaala";
+ f1.Language = "Tamil";
+ f1.lead_actor = "Rajnikanth";
+ f1.Category = "Action";
+ f1.Duration = 210;
+ films.add(f1);
+ Film f2=new Film();;
+ f2.Name="annamalai";
+ f2.Language="Tamil";
+ f2.lead_actor="Rajnikanth";
+ f2.Category="Drama";
+ f2.Duration=183;
+ films.add(f2);
+ Film f3=new Film();;
+ f3.Name="Commando";
+ f3.Language="English";
+ f3.lead_actor="Arnold Schwarzenegger";
+ f3.Category="Comedy";
+ f3.Duration=125;
+ films.add(f3);
+ Film f4=new Film();;
+ f4.Name="The Last Stand";
+ f4.Language="English";
+ f4.lead_actor="Arnold Schwarzenegger";
+ f4.Category="Comedy";
+ f4.Duration=120;
+ films.add(f4);
+ Film f5=new Film();;
+ f5.Name="Terminator";
+ f5.Language="English";
+ f5.lead_actor="Arnold Schwarzenegger";
+ f5.Category="Action";
+ f5.Duration=120;
+ films.add(f5);
+ int maximum = 1000;
+ int minimum = 0;
+ System.out.println();
+ for(int i = 0; i < 5; i++){
+ f1 = films.get(i);
+ if(f1.lead_actor.equals("Arnold Schwarzenegger")){
+ if(f1.Duration < maximum){
+ maximum = f1.Duration;
+ minimum = i;
+ }
+ }
+ if(f1.lead_actor.equals("Rajnikanth"))
+ System.out.println("Movie with Rajni is " + f1.Name);
+ if(f1.Category.equals("Comedy"))
+ System.out.println("\n" + f1.Name + " is a Comedy movie");
+ }
+ f1 = films.get(minimum);
+ System.out.println("\nShortest Arnold movie is " + f1.Name + " with Duration : " + f1.Duration+"
+minutes");
+ System.out.println();
+ }
+}
+Output:
+
+
+
+
+
+
+Java Lab Assessment 3
+Surindernath Sivakumar 21BCE3474
+Question 1:
+Answer 1:
+import java.util.*;
+public class CompoundInterest
+{
+ public static void NoExceptionHandled(Double p,Double r, Double t, Double n)
+ {
+ double a=p*(Math.pow((1+r/n),t));
+ System.out.println("The final amount is: "+a);
+ }
+ public static void ExceptionHandled(Double p,Double r, Double t, Double n)
+ {
+ try{
+ double a=p*(Math.pow((1+r/n),t));
+ }
+ catch(ArithmeticException e)
+ {
+ System.out.println("Division by Zero not possible");
+ }
+ finally
+ {
+ System.out.println("The exception was handled");
+ }
+ }
+ static void CheckException (double n) throws DivisionByZeroException
+ {
+ if(n==0)
+ {
+ throw new DivisionByZeroException("Division by zero not possible");
+ }
+ }
+ public static void main(String args[])
+ {
+ Scanner in=new Scanner (System.in);
+ double n,p,r,t;
+ System.out.println("Enter the principal amount: ");
+ p=in.nextDouble();
+ System.out.println("Enter the rate of interest: ");
+ r=in.nextDouble();
+ System.out.println("Number of times interest applied per time period: ");
+ n=in.nextDouble();
+ System.out.println("Enter the time period elapsed: ");
+ t=in.nextDouble();
+ if(n>0)
+ {
+ NoExceptionHandled(p,r,t,n);
+ }
+ else{
+ ExceptionHandled(p,r,t,n);
+ try{
+ CheckException(n);
+ }
+ catch(DivisionByZeroException ae){
+ System.out.println(ae);
+ }
+ }
+ }
+}
+class DivisionByZeroException extends Exception
+{
+ public DivisionByZeroException(String msg)
+ {
+ super(msg);
+ }
+}
+Output Screenshot:
+Question 2:
+Answer 2:
+import java.util.*;
+class InvalidPanException extends Exception
+{
+ InvalidPanException(String msg)
+ {
+ System.out.println(msg);
+ }
+}
+public class PanCard
+{
+ public static void main(String args[])
+ {
+ Scanner in=new Scanner (System.in);
+ String s,str;
+ System.out.println("Enter the PAN Card number");
+ s=in.next();
+ System.out.println("Enter the name of the customer");
+ str=in.next();
+ char c=str.charAt(0);
+ try{
+ Pan(s,c);
+ }
+ catch(Exception e)
+ {
+ System.out.println(e);
+ }
+ }
+ public static void Pan(String s,char c) throws InvalidPanException
+ {
+ int f1=0,f2=0,f3=0,f4=0;
+ char ch;
+ int n=s.length();
+ if(n==10)
+ {
+ for(int i=0;i<4;i++)
+ {
+ ch=s.charAt(i);
+ if(Character.isAlphabetic(ch))
+ f1=1;
+ }
+ if(s.charAt(4)==c)
+ f2=1;
+ for(int j=5;j<n-1;j++)
+ {
+ char chr=s.charAt(j);
+ if(Character.isDigit(chr))
+ f3=1;
+ }
+ char chrr=s.charAt(9);
+ if(Character.isAlphabetic(chrr))
+ f4=1;
+ if(f1==0 || f2==0 || f3==0||f4==0)
+ {
+ throw new InvalidPanException("Invalid Pan Card Number");
+ }
+ else
+ System.out.println("Valid Pan Card Number");
+ }
+ else
+ System.out.println("Invalid Pan Card Number");
+ }
+}
+Output Screenshot:
+Question 3:
+Answer 3:
+import java.util.*;
+class DivisonByZero extends Exception{
+public DivisonByZero(){
+super("Divison by zero is not impossible");
+}
+}
+public class naqqo{
+public static void main(String[] args){
+try{
+Scanner in=new Scanner(System.in);
+Double mia=in.nextDouble();
+Double blake=in.nextDouble();
+in.nextLine();
+String salamanca=in.nextLine();
+System.out.println(mia+" "+salamanca+" "+blake);
+if(salamanca.compareTo("+")==0){
+System.out.println(mia+blake);
+}
+if(salamanca.compareTo("-")==0){
+System.out.println(mia-blake);
+}
+if(salamanca.compareTo("/")==0){
+if(blake==0.0){
+throw new DivisonByZero();
+}
+else{
+System.out.println(mia/blake);
+}
+}
+if(salamanca.compareTo("*")==0){
+System.out.println(mia*blake);
+}
+}
+catch(InputMismatchException e){
+System.out.println("Error Input Mismatch");
+}
+catch(IndexOutOfBoundsException e){
+System.out.println("Error Index out of bounds");
+}
+catch(NumberFormatException e){
+System.out.println("Error Number format is Wrong");
+}
+catch(DivisonByZero e){
+System.out.println(e.getMessage());
+}
+}
+}
+Output Screenshot:
+Question 4:
+Answer 4:
+import java.util.*;
+import java.io.*;
+public class naqqo{
+public static void main(String[] args){
+File obj=new File("Salary.txt");
+int associative=0;
+int associative0=0;
+int associative1=0;
+int associative2=0;
+int Fullprofessor=0;
+int Fullprofessor1=0;
+try{
+Scanner in=new Scanner(System.in);
+DataOutputStream dout=new DataOutputStream(new FileOutputStream("Salary.txt"));
+for(int i=0;i<4;i++){
+System.out.println("Enter the Name, Designation(Assistant/Associative/Full) and
+Salary");
+String na=in.nextLine();
+dout.writeUTF(na);
+String des=in.nextLine();
+dout.writeUTF(des);
+intsalary=in.nextInt();
+in.nextLine();
+dout.writeInt(salary);
+}
+DataInputStream d=new DataInputStream(new FileInputStream("Salary.txt"));
+for(int i=0;i<4;i++){
+String a=d.readUTF();
+String b=d.readUTF();
+intsalary=d.readInt();
+if(b.compareTo("Assistant")==0){
+associative+=salary;
+associative0+=1;
+}
+if(b.compareTo("Associative")==0){
+associative2+=salary;
+associative1+=1;
+}
+if(b.compareTo("Full")==0){
+Fullprofessor+=salary;
+Fullprofessor1+=1;
+}
+}
+System.out.println("Total and average of assistant proffesors is "+associative+",
+"+(associative/associative0));
+System.out.println("Total and average of associate proffesors is "+associative2+",
+"+(associative2/associative1));
+System.out.println("Total and average of Fullprofessor proffesors is "+Fullprofessor+",
+"+(Fullprofessor/Fullprofessor1));
+}
+catch(FileNotFoundException e){
+System.out.println("error File Not Found");
+}
+catch(IOException e){
+System.out.println("error IO");
+}
+}
+}
+Output Screenshot
+Question 5:
+Answer 5:
+import java.util.*;
+import java.io.*;
+public class naqqo{
+public static void main(String[] args){
+Random random=new Random();
+File obj=new File("Profile.bin");
+try{
+int x=(int)(Math.random()*10000);
+DataOutputStream dout=new DataOutputStream(new FileOutputStream("Profile.bin"));
+dout.writeInt(x);
+DataInputStream d=new DataInputStream(new FileInputStream("Profile.bin"));
+int jesse=d.readInt();
+int walter=jesse;
+int f=0;
+int hank=100;
+for(int i=0;i<1;i++){
+int e=walter%10;
+f+=1000*e;
+walter=(int)walter/10;
+}
+while(walter!=0){
+int e=walter%10;
+f+=hank*e;
+hank/=10;
+walter=(int)walter/10;
+}
+System.out.println(jesse); System.out.println(f);
+if(jesse==f){
+System.out.println("Palindrome");
+}
+else{
+System.out.println("Not A Palindrome");
+}
+}
+catch(FileNotFoundException e){
+System.out.println("error File not Found");
+}
+catch(IOException e){
+System.out.println("error IO");
+}
+}
+}
+Output Screenshot:
+Question 6:
+Answer 6:
+import java.util.*;
+import java.io.*;
+class Student implements Serializable{
+String regno;
+String Name;
+int Math;
+int Science;
+int English;
+int findAverage(){
+return((Math+Science+English)/3);
+}
+}
+public class naqqo{
+public static void main(String[] args){
+File obj=new File("yourregno.ser");
+Student tuco=new Student();
+tuco.regno="21BCE3474";
+tuco.Name="Surindernath Sivakumar";
+tuco.Math=54;
+tuco.Science=23;
+tuco.English=99;
+try{
+ObjectOutputStream gus=new ObjectOutputStream(new
+FileOutputStream("yourregno.ser"));
+gus.writeObject(tuco);
+gus.flush();
+ObjectInputStream lospolloshermanos=new ObjectInputStream(new
+FileInputStream("yourregno.ser"));
+Student krazy8=(Student)lospolloshermanos.readObject();
+System.out.println(krazy8.regno);
+System.out.println(krazy8.Name);
+System.out.println("Average is "+krazy8.findAverage());
+}
+catch(FileNotFoundException e){
+System.out.println("error File Not Found");
+}
+catch(IOException e){
+System.out.println("error IO");
+}
+catch(ClassNotFoundException e){
+System.out.println("error Class Not Found");
+}
+}
+}
+Output Screenshot:
+
+
+
+
+
+
